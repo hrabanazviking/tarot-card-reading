@@ -1,0 +1,100 @@
+# Tarot Card Reading, by Volmarr Wyrd
+
+import random
+
+# Make tarot cards with their meanings
+tarot_cards = ['0 The Fool- Space before a decision or choice is made. A new cycle is about to begin that the seeker will enter inexperienced. New and endless possibilities.', '1 The Magician- Will and determination to see an idea or project though. Skill to organize and direct. Concentration and Control. Desires fulfulled by a strong will and the ability to utilize one\'s innate faculties to their fullest advantage. Originality and invention.', '2 The High Priestess- Knowledge, education, wisdom. Creative ability. Secrets. Undeveloped talents. Feminine influence. Perception, self-motivation, effort. Mystery. Interest in the unknown.', '3 The Empress- Fertility, creativity, and imagination. Pregnancy. The ability to create a warm and productive environment. Good harvest. Comfort and excess. Material gain, luxurious surroundings. Productivity. Protectiveness.', '4 The Emperor- Leadership, dominance, authority. Government in control. Discipline. Reasoning.', '5 The Hierophant- Religious influence. Conformity. An inspirational teacher who revelas signs of spiritual importance. Gateways to higher consciousness reached in a ritualized way.', '6 The Lovers- True love and equality between a man and a woman. Temptation, choices, actions, and direction. Decisions based upon intuition rather than intelect.', '7 The Chariot- Protecting one\'s interest and phyche. Control of the direction of one\'s life. Travel. Understanding the nature of good and evil.', '8 Strength- Mental and physical strength and health. The ability to cultivate latent potential to a higher, more developed state. A well balanced body and mind.', '9 The Hermit- A time for soul-searching. The need to step back and reevaluate goals. Search for something more than what you have. Listen to advice from wise souls. Keeps an open mind to new concepts. Meditation.', '10 The Wheel of Fortune- Fate, chance and destiny. Cause and effect. Karma. The future depends upon that which has been done before. The Laws of nature and probability. The continuation of an ongoing pattern.', '11 Justice- A fair and just outcome of a matter. Good instinct and perception. A positive end to lawsuits. Setting a confused life to order successfully. Spiritual Justice.', '12 The Hanged Man- Spiritual awareness and the happiness and assuredness it brings. Sacrificing for a noble purpose. Reveral of one\'s current way of life. Inner peace. Developed intuition and prophecy.', '13 Death- The end of a particular phase, epoch, or feeling. The present situation is outworn, unproductive, so it will end soon. A major change is due. Termination of an unendurable situation. Renewal.', '14 Temperance- Moderation and control in all actions and affairs. Adapting to new circumstances. Diplomancy. Even temperament. Harmonizing of the psychic and material aspects.', '15 The Devil- Taking things for their surface value. Superficial, materialistic personality. Greed, lust, and perversion. Living in darkness. Slave to temptation and ignorance. Nothing of value will be gained.', '16 The Tower- Sudden inspiration and realization. A traumatic change that willeventually bring positive growth and new awareness. A broken home. Divorce. Out growing the environment.', '17 The Star- Inspiration, insight, and understanding. Mental and physical health. A new life and openness to new ideas and concepts. Guidance from above is found within. Eternal life.', '18 The Moon- Psychic powers are developed. Hidden talents or feelings come to light. Situation can be illusionary. Intuition and imagination. Solitude. Peace.', '19 The Sun- Happiness, pleasure, and understanding. Positive energy. Warmth, love, and growth. Joy. Accomplishment. Success.', '20 Judgment- Personal consciousness blends into universal consciousness. Release. Liberation. Fulfillment. Healing.', '21 The Universe- Deserved rewards. Triumph. Eternal life. Peace and joy in a new home.', 'Ace of Wands- The symbol of energy, fertility, growth, and the beginning of spiritual understanding. It represents self-expression through the creation of an orgininal idea, pattern and product. It is a positive symbol of the soul in tune with nature and the cosmos.', '2 of Wands- The Mature strong personality is developing itself and its ideas. The necessary preparations for success in one\'s field of endeaver are being made. At the same time. one must make a choice to insure steady progress. Reasearch and learning.', '3 of Wands- Plans are made, but help is needed to see them accomplished. Perhaps help will be offered from an established person or group.', '4 of Wands- Established home and financial life. Success is well deserved.', '5 of Wands- Competition, struggle, tension, and conflict in business or project. Disorder caused by obstacles and differing opinions.', '6 of Wands- Victory is gained through intelligent decisions and diplomancy. An important matter is settled successfully. Triumph after a struggle.', '7 of Wands- Mental and physical strength is needed to combat opposition. Constant affort and courage keeps one on top of adversaries.', '8 of Wands- Vacation, travel by air for the purpose of relaxation and enjoyment. Quick travel to a new place. Fast movement, arrival.', '9 of Wands- Dedication to defending one\'s position or situation because conflict is expected. Stable positioning and alertness insure success against attack.', '10 of Wands- Determination to see a very demanding project through to the finish. Oppression caused by too much pressure and strain.', 'Page of Wands- A faithful youth filled with good intentions. A trustworthy person who naturally transmits spiritual information from a pure and sincere heart. Eyes covered by a hat, this youth cannot see the future, nor does he realize the enlightening revelations he conveys to others by his being.', 'Knight of Wands- An energetic, restless, somewhat impulsive opportunist. Change of situation or residence. A person who is not ready to settle.', 'Queen of Wands- Sincere and Loyal, represents a nature-loveing country woman fond of children and homelife. Patient and loveing, she holds strong friend-ships and is spiritually aware.', 'King of Wands- A wise, intelligent, and educated man. A fatherly type, married, with family. Passionate and loyal, is full of ideas and is a leader in enterprise. He prefers country living and is a conscientious sort.', 'Ace of Cups- The beginning of great love, joy, spiritual enlightenment, perfection, beauty. Family love and true friend-ships. Birth.', '2 of Cups- Mutual love and understanding shared between man and woman. Union, commitment.', '3 of Cups- Abundance, bounty, happiness, and celebration. Plenty of food, drink, and friends. Cause for celebration.', '4 of Cups- Great opportnity offered from a helpful source. Opportunity comes when one is unaware and in a passive state of mind.', '5 of Cups- Attention is fixed on misfortune and regrets. The good in life is overlooked. Disappointment and guilt. Rediscovery.', '6 of Cups- Innocent, undemanding love. Accepting one for what he or she is. Meeting with friend from the past. Nostalgia.', '7 of Cups- Several choices are available, and the imagination makes them all seem grand. Focus energy on one goal to assure success.', '8 of Cups- Personal success and accomplishment that bring much satisfaction. However, disappointment in love prompts the seeker to turn and head towards something higher. Emotional dependence on friends and lover decreases. Traveling on to something new.', '9 of Cups- Self-satisfaction and contentment with friends and accomplishments. Enjoying friends, food, and drink to the hilt. Good natured and liberal personality.', '10 of Cups- Contentment with the one you love, family, and friends. People who have gone through the good and bad times together feel secure and happy. Trust, much love, fine home.', 'Page of Cups- A quiet and intelligent youth. A perfectionist who is artistic, poetic, and meditative. The realization of talents.', 'Knight of Cups- Artistic, imginative, poetic person who is open-minded and socially oriented. He is both convincing and easy to convince.', 'Queen of Cups- A kind and generous woman interested and talented in the arts. A women who feels comforable in any situation. An imginative, intuitive woman charactized by expressive eyes and a gentle manner. A romantic and attractive woman touched by all she sees.', 'King of Cups- Authoritative, responsible, ambitious man, one who demands respect. An expert in the arts, sciences, or law. A strong, powerfull, and secretive man who gives excellent advice. generous, but with a tendency to be manipulative.', 'Ace of Swords- The triumph of positive force. Victory. Freedom. The beginning of a struggle for a noble cause. Action. Power, great force, and championship.', '2 of Swords- In deadlock, but a move is inevitable. Weighting consequences that are unclear and not completely understood.', '3 of Swords- Broken heart, tears, and sorrow. Emotional upheavel, pain, and disturbance. Disappointment, shattered emotions', '4 of Swords- Retreat from the outside world to rejuvenate emotional and physical strength. Reevaluation of thoughts and life in peacefull surroundings.', '5 of Swords- Temporary advancement. Strength and severity win a momentary triumph which, in the end, becomes humiliating.', '6 of Swords- Moveing to a calmer, more peacefull place. Crossing water to arrive at a better destination. Smoothing of woes and difficulties.', '7 of Swords- Theft without guilt. Greediness in taking more than is needed and mistaken confidence in so doing. Attention is given to a certain project while an old one is still in mind.', '8 of Swords- A tempory prisoner of the self. A withdrawn, introverted personality. Lack of confidence and motivation to make a change in one\'s life. Fear of failure keeps one in a rut.', '9 of Swords- Productive energy is repressed and must be released. Feeling unfulled and useless. Bound by that which is gone and will never return. Lack of help or understanding from others', '10 of Swords- Accepting ideas and ways of others leads to defeat and ruin. Pain and bitter disappointment, lowest point in a cycle.', 'Page of Swords- Youth belonging to an institution, be it military, school, or reformatory. Someone with owed time. A spy with shady charactor and malicious intentions.', 'knight of Swords- Fearless and confident young man who is career-minded and a conqueror. He will stop at nothing and sacrifice anything to get what he wants.', 'Queen of Swords- A determined, sharp-witted, and stern woman who is always on guard. She has been hurt in the past and thus retains an air of aloofness and caution. She is wise, intelligent, and intent on haveing her own way. She is always on guard.', 'King of Swords- A political or military man, powerful and determined. A professional man with a sharp analytical mind. A person of authority and action who sees facts without emotion. Potent and productive.', 'Ace of Pentacles- Represents spiritual blessing in the material world. The path of great wealth and prosperity.', '2 Of Pentacles- Effort is required to balance and harmonize career and social affairs during unsteady times. Care is needed in scheduling time and energy.', '3 of Pentacles- Apprenticeship. The sincere effort to develop and utilize one\'s creative talents and the satisfaction resulting from doing so. Confidence and inner satisfaction.', '4 of Pentacles- Concentration on money suppresses feelings in other areas. A miserly personality impressed by material gain and standing. This overdeveloped interest in wealth limits other interests.', '5 of Pentacles- Hardships and destitution. The unfortunate couple seek comfort and spiritual guidance from above. A time of confusion and troubles, both emotional and financial.', '6 of Pentacles- Good money mangagement and business sense are combined with generosity. These traits put one in the position to help others.', '7 of Pentacles- Patience while waiting for well-deserved benefits of laber. Hard work and effort bring financial reward.', '8 of Pentacles- Craftsmanship. Financial gain from the skillfull utilization of one\'s creative abilities. Through past apprenticeships combined with natural talent, thoughts are worked through to creation.', '9 of Pentacles- Attainment of financial success and material comforts. Independent enjoyment of luxury and accomplishments in the material plane.', '10 of Pentacles- Financial and family security. A home built on firm foundations.', 'Page of Pentacles- Represents a very opinionated youth possed of high ideals with which to build his future. Serious, scholary, appreciative of the finer things in life and will not settle for a road that does not lead to these things.', 'Knight of Pentacles- A diligent person well trained in his field of endeavor. He is capable and dependable. Although interested in science and culture, his ways are materialistic and methodical.', 'Queen of Pentacles- An intelligent, cultured, and elegant woman. Her interests lie in the arts and civic affairs. She is a wealthy woman, financially and emotionally stable. She donates generously to subjects that interest her.', 'King of Pentacles- A shrewd, established man who has had made a success of his business or vocation. A chief of industry, he is intelligent and world-wise. He has a down-to-earth nature, is sensible and protective of those he loves.']
+
+# Create tarot deck of just numbers
+tarot_deck = list(range(0, 78))
+
+# Shuffle the tarot deck!
+random.shuffle(tarot_deck)
+
+# Draw the first card!
+first_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The Present: This card represents the current situation or state of affairs. It gives an overview of the current energy or dynamic that is influencing the situation at hand.")
+print("")
+print(tarot_cards[first_card])
+print("")
+print("------------------------------------------")
+
+# Draw the second card!
+second_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The Challenge: This card represents the main obstacle or challenge that needs to be overcome. It highlights the main issue or problem that is blocking the querent's progress.")
+print("")
+print(tarot_cards[second_card])
+print("")
+print("------------------------------------------")
+
+# Draw the third card!
+third_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The Past: This card represents past influences or experiences that have led to the present situation. It provides insight into the background or history of the situation.")
+print("")
+print(tarot_cards[third_card])
+print("")
+print("------------------------------------------")
+
+# Draw the fourth card!
+fourth_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The Future: This card represents the likely outcome or future developments of the situation. It gives an idea of what can be expected in the near future.")
+print("")
+print(tarot_cards[fourth_card])
+print("")
+print("------------------------------------------")
+
+# Draw the fifth card!
+fifth_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The Best Outcome: This card represents the best possible outcome of the situation. It gives an idea of what can be achieved if all goes well.")
+print("")
+print(tarot_cards[fifth_card])
+print("")
+print("------------------------------------------")
+
+# Draw the sixth card!
+sixth_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The foundation of the matter: This card represents the most known facts or information about the situation. It provides a solid understanding of the situation.")
+print("")
+print(tarot_cards[sixth_card])
+print("")
+print("------------------------------------------")
+
+# Draw the seventh card!
+seventh_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The Querant's Perspective: This card represents the querent's perspective on the situation, and how they see themselves within it. It gives insight into the querent's attitudes and beliefs about the situation.")
+print("")
+print(tarot_cards[seventh_card])
+print("")
+print("------------------------------------------")
+
+# Draw the eighth card!
+eighth_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The External Perception: This card represents how others see the querent in relation to the situation. It gives insight into the perceptions and opinions of others about the querent's role in the situation.")
+print("")
+print(tarot_cards[eighth_card])
+print("")
+print("------------------------------------------")
+
+# Draw the ninth card!
+ninth_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The Hopes and Fears: This card represents the querent's hopes and fears in relation to the situation. It gives insight into the querent's underlying emotions and concerns.")
+print("")
+print(tarot_cards[ninth_card])
+print("")
+print("------------------------------------------")
+
+# Draw the tenth card!
+tenth_card = tarot_deck[0]
+tarot_deck.pop(0)
+print("The Probable Outcome: This card represents the final outcome or resolution of the situation. It gives an idea of what the likely outcome will be.")
+print("")
+print(tarot_cards[tenth_card]) 
