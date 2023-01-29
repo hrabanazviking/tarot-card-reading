@@ -1,4 +1,8 @@
 # Tarot Card Reading, by Volmarr Wyrd
+# V1.00
+
+# This is code I wrote on Jan-29-2023, on the first day I started to learn Python.
+# I have been trying to upgrade it so it can display images of the cards, but so far that seems to be too big of a challenge for a first day learner.
 
 import random
 
